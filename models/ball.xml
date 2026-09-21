@@ -1,0 +1,52 @@
+<!-- Everything is inside <mujoco>.
+Inside that:
+1.Physics settings.
+2.World objects.
+3.Bodies.
+4.Joints.
+5.Shapes.
+This hierarchy exists because every object belongs somewhere -->
+
+<!-- This tells Mujoco simulation name is falling ball -->
+<mujoco model="falling_ball">  
+
+<!-- This first physics parameter. The three numbers are: X , Y, Z  -->
+
+    <option gravity="0 0 -9.81"/>
+
+    <!-- Everything physical must live inside worldbody. -->
+
+    <worldbody>
+
+        <!-- A geom is a geometry.It serves two purposes.Visible object.Collision object. -->
+
+        <geom type="plane" size="5 5 0.1"/>
+
+        <body pos="0 0 1">
+
+            <joint type="free"/>
+
+            <geom type="sphere" size="0.1"/>
+
+        </body>
+
+    </worldbody>
+
+</mujoco>
+
+
+
+
+<!-- Every frame, MuJoCo repeats:
+
+Read current position.
+
+Compute forces.
+
+Apply gravity.
+
+Detect collision.
+
+Solve equations.
+
+Update the body. -->

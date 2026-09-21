@@ -1,0 +1,51 @@
+<mujoco model="mini_humanoid">
+
+    <option gravity="0 0 -9.81"/>
+
+    <worldbody>
+
+        <geom type="plane" size="5 5 0.1"/>
+
+        <body name="torso" pos="0 0 1.2">
+
+            <joint type="free"/>
+
+            <geom type="box" size="0.12 0.08 0.18"/>
+
+            <body name="head" pos="0 0 0.28">
+                <geom type="sphere" size="0.08"/>
+            </body>
+
+            <body name="left_thigh" pos="-0.08 0 -0.18">
+                <joint name="left_hip" type="hinge" axis="0 1 0"/>
+                <geom type="capsule"
+                      fromto="0 0 0 0 0 -0.35"
+                      size="0.04"/>
+
+                <body name="left_shin" pos="0 0 -0.35">
+                    <joint name="left_knee" type="hinge" axis="0 1 0"/>
+                    <geom type="capsule"
+                          fromto="0 0 0 0 0 -0.35"
+                          size="0.035"/>
+                </body>
+            </body>
+
+            <body name="right_thigh" pos="0.08 0 -0.18">
+                <joint name="right_hip" type="hinge" axis="0 1 0"/>
+                <geom type="capsule"
+                      fromto="0 0 0 0 0 -0.35"
+                      size="0.04"/>
+
+                <body name="right_shin" pos="0 0 -0.35">
+                    <joint name="right_knee" type="hinge" axis="0 1 0"/>
+                    <geom type="capsule"
+                          fromto="0 0 0 0 0 -0.35"
+                          size="0.035"/>
+                </body>
+            </body>
+
+        </body>
+
+    </worldbody>
+
+</mujoco>
