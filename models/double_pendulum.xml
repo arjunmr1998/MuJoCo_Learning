@@ -1,0 +1,45 @@
+<mujoco model="double_pendulum">
+
+    <!-- Physics settings -->
+    <option gravity="0 0 -9.81"/>
+
+    <worldbody>
+
+        <!-- Ground -->
+        <geom type="plane" size="5 5 0.1"/>
+
+        <!-- First Link -->
+        <body name="link1" pos="0 0 2">
+
+            <!-- Shoulder joint -->
+            <joint name="shoulder"
+                   type="hinge"
+                   axis="0 1 0"/>
+
+            <!-- First rod -->
+            <geom name="rod1"
+                  type="capsule"
+                  fromto="0 0 0 0 0 -1"
+                  size="0.04"/>
+
+            <!-- Second Link -->
+            <body name="link2" pos="0 0 -1">
+
+                <!-- Elbow joint -->
+                <joint name="elbow"
+                       type="hinge"
+                       axis="0 1 0"/>
+
+                <!-- Second rod -->
+                <geom name="rod2"
+                      type="capsule"
+                      fromto="0 0 0 0 0 -1"
+                      size="0.04"/>
+
+            </body>
+
+        </body>
+
+    </worldbody>
+
+</mujoco>
